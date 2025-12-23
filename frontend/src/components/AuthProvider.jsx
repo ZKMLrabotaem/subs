@@ -9,6 +9,7 @@ export function AuthProvider({ children }) {
     const [loading, setLoading] = useState(true);
 
     const init = useCallback(async () => {
+        setLoading(true);
         try {
             const { data } = await getMe();
             setUser(data);
@@ -19,6 +20,7 @@ export function AuthProvider({ children }) {
         }
     }, []);
 
+
     useEffect(() => {
         init();
     }, [init]);
@@ -26,12 +28,14 @@ export function AuthProvider({ children }) {
     const login = async (credentials) => {
         const { data } = await authApi.login(credentials);
         setUser(data.user ?? data);
+        await init();
         return data;
     };
 
     const register = async (payload) => {
         const { data } = await authApi.register(payload);
         setUser(data.user ?? data);
+        await init();
         return data;
     };
 

@@ -201,9 +201,7 @@ export default function CreatorPage() {
                                         <p> Подписка закончится: {new Date(creator.expiresAt).toLocaleString()}<br/> Отменено: {new Date(creator.canceledAt).toLocaleString()} </p>
                                         )
                                     ) : (
-                                        <button onClick={handleSubscribe} disabled={subLoading}>
-                                            Подписаться
-                                        </button>
+                                        <></>
                                     )}
                                 </div>
                             </>
