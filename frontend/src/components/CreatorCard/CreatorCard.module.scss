@@ -1,0 +1,51 @@
+.card {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: #252525;
+  border-radius: 14px;
+  align-items: center;
+}
+
+.avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.username {
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+
+  &:hover {
+    color: #747bff;
+  }
+}
+
+.bio {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.meta {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.subInfo {
+  font-size: 13px;
+  color: #bbb;
+}
+
+.canceled {
+  color: #ff8c8c;
+}

@@ -1,0 +1,163 @@
+.page {
+  background: #1e1e1e;
+  color: #e6e6e6;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ===== HEADER ===== */
+
+.header {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  background: #252525;
+  border-radius: 16px;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #747bff;
+}
+
+.headerMain {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+/* left */
+.identity {
+  max-width: 420px;
+
+  h2 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+  }
+}
+
+.bio {
+  margin: 8px 0;
+  color: #b5b5b5;
+}
+
+.profileLink {
+  font-size: 14px;
+  color: #747bff;
+}
+
+/* right */
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* buttons */
+.actions button {
+  background: #747bff;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background: #5f65f2;
+  }
+}
+.primaryButton {
+  background: linear-gradient(135deg, #747bff, #5f65f2);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+}
+/* price edit */
+.priceEdit {
+  display: flex;
+  gap: 8px;
+
+  input {
+    width: 80px;
+    background: #1f1f1f;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 6px;
+    color: #fff;
+  }
+}
+
+/* ===== TOOLBAR ===== */
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.createPost {
+  background: linear-gradient(135deg, #747bff, #5f65f2);
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+}
+
+.searchFilters {
+  display: flex;
+  gap: 12px;
+
+  input {
+    background: #252525;
+    border: 1px solid #3a3a3a;
+    border-radius: 10px;
+    padding: 8px 12px;
+    color: #fff;
+    min-width: 260px;
+  }
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

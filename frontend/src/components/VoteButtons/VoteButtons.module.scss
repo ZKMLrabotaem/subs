@@ -1,0 +1,24 @@
+.votes {
+  display: flex;
+  gap: 8px;
+  margin: 12px 0;
+
+  button {
+    background: #252525;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 12px;
+    cursor: pointer;
+    color: #ccc;
+    font-weight: 600;
+    transition: background 0.2s, color 0.2s;
+
+    &:hover {
+      background: #3a3a3a;
+    }
+
+    &.active {
+      color: #747bff;
+    }
+  }
+}

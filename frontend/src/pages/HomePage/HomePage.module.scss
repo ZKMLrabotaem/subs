@@ -1,0 +1,104 @@
+.page {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 24px;
+  padding: 2rem;
+  background-color: #121212;
+  color: #e0e0e0;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5rem;
+    color: #ffffff;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-top: 2rem;
+    color: #ffffff;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #cfcfcf;
+  }
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.primary {
+  background: #747bff; /* Patreon-style purple */
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.1s;
+
+  &:hover {
+    background: #8a90ff;
+    transform: translateY(-2px);
+  }
+}
+
+.secondary {
+  border: 1px solid #747bff;
+  color: #747bff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  background: transparent;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+
+  &:hover {
+    background: #2a2a2a;
+    color: #8a90ff;
+    transform: translateY(-2px);
+  }
+}
+
+.creators {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 1rem;
+}
+
+.creatorCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #1f1f1f;
+  padding: 12px;
+  border-radius: 12px;
+  width: 120px;
+  text-decoration: none;
+  color: #e0e0e0;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+  }
+
+  .avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 8px;
+  }
+
+  p {
+    margin: 0;
+    font-weight: 500;
+    color: #ffffff;
+  }
+}

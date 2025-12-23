@@ -1,0 +1,115 @@
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "debian-openssl-1.1.x"]
+
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum UserRole {
+  USER
+  CREATOR
+  ADMIN
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  email         String    @unique
+  username      String    @unique
+  passwordHash  String
+  role          UserRole  @default(USER)
+  balance       Int   @default(10000)
+  avatarUrl     String?
+  bio           String?
+  createdAt     DateTime  @default(now())
+
+  posts         Post[]
+  subscriptions Subscription[] @relation("UserSubscriptions")
+  subscribers   Subscription[] @relation("CreatorSubscribers")
+  creatorProfile CreatorProfile?
+
+  comments      Comment[]
+
+  postVotes     Vote[]
+  profileVotes  Vote[]   @relation("ProfileVotes")
+}
+
+model CreatorProfile {
+  id                 Int      @id @default(autoincrement())
+  userId             Int      @unique
+  bannerUrl          String?
+  subscriptionPrice  Int
+  createdAt          DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Post {
+  id          Int      @id @default(autoincrement())
+  title       String
+  content     String
+  previewText String?
+  mediaUrl    String?
+  isPaid      Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  comments    Comment[]
+  votes       Vote[]
+
+  authorId Int
+  author   User @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([authorId])
+  @@index([createdAt])
+}
+
+model Subscription {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  creatorId  Int
+  createdAt DateTime @default(now())
+  expiresAt DateTime
+  autoRenew  Boolean  @default(true)
+  canceledAt DateTime?
+
+  user    User @relation("UserSubscriptions", fields: [userId], references: [id], onDelete: Cascade)
+  creator User @relation("CreatorSubscribers", fields: [creatorId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, creatorId])
+  @@index([creatorId])
+}
+
+model Vote {
+  id        Int      @id @default(autoincrement())
+  value     Int      // 1 = like, -1 = dislike
+
+  userId    Int
+  user      User     @relation(fields: [userId], references: [id])
+
+  postId    Int?
+  post      Post?    @relation(fields: [postId], references: [id])
+
+  profileId Int?
+  profile   User?    @relation("ProfileVotes", fields: [profileId], references: [id])
+
+  createdAt DateTime @default(now())
+
+  @@unique([userId, postId])
+  @@unique([userId, profileId])
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  content   String
+
+  postId    Int
+  post    Post  @relation(fields: [postId], references: [id], onDelete: Cascade)
+
+  authorId  Int
+  author    User     @relation(fields: [authorId], references: [id])
+
+  createdAt DateTime @default(now())
+}

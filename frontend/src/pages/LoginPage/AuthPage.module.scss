@@ -1,0 +1,28 @@
+.page {
+  max-width: 400px;
+  margin: 60px auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #6c5ce7;
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}

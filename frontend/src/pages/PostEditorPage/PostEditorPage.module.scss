@@ -1,0 +1,86 @@
+.form {
+  background: #252525;
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 24px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.previewTitle {
+  font-size: 14px;
+  color: #aaa;
+}
+
+.mediaPreview {
+  width: 100%;
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 14px;
+  overflow: hidden;
+
+  img,
+  video {
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    background: #000;
+    display: block;
+  }
+}
+
+
+.placeholder {
+  padding: 48px 16px;
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+.fileInput {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+
+  font-size: 14px;
+  color: #bbb;
+
+  input[type="file"] {
+    font-size: 13px;
+    color: #aaa;
+    max-width: 200px;
+  }
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 15px;
+  cursor: pointer;
+  width: fit-content;
+
+  input {
+    width: 18px;
+    height: 18px;
+    accent-color: #747bff;
+    cursor: pointer;
+  }
+}
